@@ -1,0 +1,199 @@
+:root {
+            --marvel-red: #e62429;
+            --marvel-dark: #202020;
+            --marvel-gold: #f0e6d2;
+            --marvel-light: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--marvel-dark);
+            color: var(--marvel-light);
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            min-height: 100vh;
+        }
+        
+        @font-face {
+            font-family: 'Bebas Neue';
+            src: url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        }
+        
+        #menu {
+            background-color: var(--marvel-red);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+        }
+        
+        #menu a {
+            color: var(--marvel-gold);
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        #menu a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        #menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--marvel-gold);
+            transition: width 0.3s ease;
+        }
+        
+        #menu a:hover::after {
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            color: var(--marvel-red);
+            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--marvel-gold);
+            line-height: 1.6;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery a {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            height: 400px;
+            display: flex;
+        }
+        
+        .gallery a:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery a:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            z-index: 1;
+        }
+        
+        .gallery a::after {
+            content: attr(href);
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.5rem;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery a:hover::after {
+            opacity: 1;
+        }
+        
+        footer {
+            background-color: var(--marvel-red);
+            color: var(--marvel-gold);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-icons {
+            margin: 1rem 0;
+        }
+        
+        .social-icons a {
+            color: var(--marvel-gold);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            #menu a {
+                font-size: 1.2rem;
+                margin: 0 0.5rem;
+            }
+        }
